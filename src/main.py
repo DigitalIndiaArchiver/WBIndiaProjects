@@ -1,4 +1,5 @@
-# """Program to extract World Bank Projects data"""
+"""Program to extract World Bank Projects data"""
+from datetime import datetime
 import json
 import requests
 import pandas as pd
@@ -8,10 +9,42 @@ headers = {
 }
 
 PROJECTS_URL_BASE = "http://search.worldbank.org/api/v2/projects"
+DOCUMENTS_URL_BASE = "https://search.worldbank.org/api/v2/wds"
 
 
-def main():
-    """Main method"""
+def get_documents():
+    """Get Document Information"""
+    params = {'format': 'json', 'fl': 'docdt,docty', 'strdate': '1948-01-01',
+              'enddate': datetime.today().strftime('%Y-%m-%d'),
+              'countrycode_exact': 'IN', 'rows': '1000'}
+
+    response = requests.request(
+        "GET", DOCUMENTS_URL_BASE, headers=headers, params=params, timeout=1800)
+    data = json.loads(response.text)
+    doc_count = data['total']
+    document_list = list(data['documents'].values())
+    i = 1000
+    while i < doc_count:
+        try:
+            params['os'] = str(i)
+            response = requests.request(
+                "GET", DOCUMENTS_URL_BASE, headers=headers, params=params, timeout=1800)
+            data = json.loads(response.text)
+            document_list = document_list + list(data['documents'].values())
+            doc_count = data['total']
+            i = i + 1000
+        except:
+            print('Exception trying to fetch ' + response.url)
+            continue
+    documents_dataframe = pd.DataFrame.from_dict(
+        document_list, orient='columns')
+    documents_dataframe = documents_dataframe.drop('entityids', axis=1)
+    documents_dataframe.sort_values(by='docdt', ascending=False)
+    documents_dataframe.to_csv('data/WB_India_Documents.csv')
+
+
+def get_projects():
+    """Get Project Information"""
     params = {'format': 'json', 'kw': 'N', 'countryname_exact': 'Republic of India', 'rows': '1000',
               'fl': """id,regionname,countryname_mdk,prodline,borrower,lendinginstr,
               lendinginstrcode,lendinginstrtype_mdk,supplementprojectflg,productlinetype,
@@ -22,9 +55,15 @@ def main():
         "GET", PROJECTS_URL_BASE, headers=headers, params=params, timeout=1800)
     data = json.loads(response.text)
     projects = data['projects'].values()
-    projectDataFrame = pd.DataFrame.from_dict(projects, orient='columns')
-    projectDataFrame.sort_values(by='id', ascending=False)
-    projectDataFrame.to_csv('data/WB_India_Projects.csv')
+    project_dataframe = pd.DataFrame.from_dict(projects, orient='columns')
+    project_dataframe.sort_values(by='id', ascending=False)
+    project_dataframe.to_csv('data/WB_India_Projects.csv')
+
+
+def main():
+    """Main method"""
+    get_projects()
+    get_documents()
 
 
 if __name__ == "__main__":

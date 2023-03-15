@@ -23,6 +23,7 @@ def main():
     data = json.loads(response.text)
     projects = data['projects'].values()
     projectDataFrame = pd.DataFrame.from_dict(projects, orient='columns')
+    projectDataFrame.sort_values(by='id'ascending=False)
     projectDataFrame.to_csv('data/WB_India_Projects.csv')
 
 

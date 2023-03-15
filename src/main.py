@@ -14,7 +14,7 @@ DOCUMENTS_URL_BASE = "https://search.worldbank.org/api/v2/wds"
 
 def get_documents():
     """Get Document Information"""
-    params = {'format': 'json', 'fl': 'docdt,docty', 'strdate': '1948-01-01',
+    params = {'format': 'json', 'fl': 'docdt,docty,projectid', 'strdate': '1948-01-01',
               'enddate': datetime.today().strftime('%Y-%m-%d'),
               'countrycode_exact': 'IN', 'rows': '1000'}
 
@@ -38,7 +38,7 @@ def get_documents():
             continue
     documents_dataframe = pd.DataFrame.from_dict(
         document_list, orient='columns')
-    documents_dataframe = documents_dataframe.drop(['entityids','url'], axis=1)
+    documents_dataframe = documents_dataframe.drop(['entityids','url','url_friendly_title'], axis=1)
     documents_dataframe['display_title'] =  documents_dataframe['display_title'].str.replace('\n',' ')
     documents_dataframe['docdt'] = pd.to_datetime(documents_dataframe['docdt'].str.strip(), dayfirst=True,format= '%Y-%m-%d').dt.date
     documents_dataframe.sort_values(by='docdt', ascending=False)

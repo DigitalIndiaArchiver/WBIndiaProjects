@@ -38,7 +38,9 @@ def get_documents():
             continue
     documents_dataframe = pd.DataFrame.from_dict(
         document_list, orient='columns')
-    documents_dataframe = documents_dataframe.drop(['entityids',, axis=1)
+    documents_dataframe = documents_dataframe.drop(['entityids','url'], axis=1)
+    documents_dataframe['display_title'] =  documents_dataframe['display_title'].str.replace('\n',' ')
+    documents_dataframe['docdt'] = pd.to_datetime(documents_dataframe['docdt'].str.strip(), dayfirst=True,format= '%Y-%m-%d').dt.date
     documents_dataframe.sort_values(by='docdt', ascending=False)
     documents_dataframe.to_csv('data/WB_India_Documents.csv')
 

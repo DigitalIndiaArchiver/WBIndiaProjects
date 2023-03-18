@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Explore",
+			"name": "Explore Projects",
 			"item": [
 				{
 					"name": "Get Projects",
@@ -1163,12 +1163,12 @@
 	],
 	"variable": [
 		{
-			"id": "bb869fb3-9c93-4a3d-8570-2f8ab2e9ed5e",
+			"id": "f6b02d26-cc21-4f5c-adce-e75420dd7bfe",
 			"key": "SEARCH_API",
 			"value": "http://search.worldbank.org/api/v2"
 		},
 		{
-			"id": "c8161a20-e904-40f1-8bee-56b68014cb15",
+			"id": "047ed2f2-59d0-44d4-8b60-1031dfd0f190",
 			"key": "PROJECT_ID",
 			"value": "P175221"
 		}

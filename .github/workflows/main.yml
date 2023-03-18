@@ -2,8 +2,9 @@ name: FetchWBProjects
 
 on:
   push:
-    branches:
-      - main
+    branches: ['main']
+    paths: ['src/*.py']
+
   workflow_dispatch:
   schedule:
     - cron: '00 23 * * *'

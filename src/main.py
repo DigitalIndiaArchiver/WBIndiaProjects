@@ -38,9 +38,12 @@ def get_documents():
             continue
     documents_dataframe = pd.DataFrame.from_dict(
         document_list, orient='columns')
-    documents_dataframe = documents_dataframe.drop(['entityids','url','url_friendly_title'], axis=1)
-    documents_dataframe['display_title'] =  documents_dataframe['display_title'].str.replace('\n',' ')
-    documents_dataframe['docdt'] = pd.to_datetime(documents_dataframe['docdt'].str.strip(), dayfirst=True,format= '%Y-%m-%d').dt.date
+    documents_dataframe = documents_dataframe.drop(
+        ['entityids', 'url', 'url_friendly_title'], axis=1)
+    documents_dataframe['display_title'] = documents_dataframe['display_title'].str.replace(
+        '\n', ' ')
+    documents_dataframe['docdt'] = pd.to_datetime(
+        documents_dataframe['docdt'].str.strip(), dayfirst=True, format='%Y-%m-%d').dt.date
     documents_dataframe.sort_values(by='docdt', ascending=False)
     documents_dataframe.to_csv('data/WB_India_Documents.csv')
 
@@ -62,10 +65,21 @@ def get_projects():
     project_dataframe.to_csv('data/WB_India_Projects.csv')
 
 
+def get_finances():
+    """Get Finance data"""
+    FINANCE_URL = 'https://finances.worldbank.org/resource/sfv5-tf7p.json'
+    data = json.loads(requests.request("GET",FINANCE_URL).text)
+    finance_dataframe = pd.DataFrame.from_dict(data, orient='columns')
+    finance_dataframe = finance_dataframe.loc[finance_dataframe['country_code'] == 'IN']
+    finance_dataframe.sort_values(by='project_id', ascending=False)
+    finance_dataframe.to_csv('data/WB_India_Project_Finance.csv')
+
+
 def main():
     """Main method"""
     get_projects()
     get_documents()
+    get_finances()
 
 
 if __name__ == "__main__":

@@ -6,8 +6,13 @@
 	},
 	"item": [
 		{
+			"name": "New Folder",
+			"item": [],
+			"id": "4822a787-764f-46d5-bc72-7437da911785"
+		},
+		{
 			"name": "Get Projects",
-			"_postman_id": "9f445ffe-fcd0-4fb4-a6fc-2371270476c7",
+			"id": "9f445ffe-fcd0-4fb4-a6fc-2371270476c7",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -204,7 +209,7 @@
 		},
 		{
 			"name": "Get Projects Copy",
-			"_postman_id": "77babc02-b6f8-4c89-ab31-6c6204264deb",
+			"id": "77babc02-b6f8-4c89-ab31-6c6204264deb",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -401,7 +406,7 @@
 		},
 		{
 			"name": "Project ProcNotices",
-			"_postman_id": "21cf138a-f772-470e-bf87-ce7b09da9dfd",
+			"id": "21cf138a-f772-470e-bf87-ce7b09da9dfd",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -548,7 +553,7 @@
 		},
 		{
 			"name": "Project ContractData",
-			"_postman_id": "0eb06822-0d9a-4e8c-a23c-480bbdd8301e",
+			"id": "0eb06822-0d9a-4e8c-a23c-480bbdd8301e",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -751,7 +756,7 @@
 		},
 		{
 			"name": "Project Plans",
-			"_postman_id": "a71c82a4-a0c6-4b29-817f-1ff9ce8ba2d1",
+			"id": "a71c82a4-a0c6-4b29-817f-1ff9ce8ba2d1",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -894,7 +899,7 @@
 		},
 		{
 			"name": "Project Documents",
-			"_postman_id": "2d6320b9-6f30-411f-8bc6-75116e78d598",
+			"id": "2d6320b9-6f30-411f-8bc6-75116e78d598",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1037,7 +1042,7 @@
 		},
 		{
 			"name": "Project Archives",
-			"_postman_id": "f0b678b3-19b9-4e51-8f2e-cf753aff5519",
+			"id": "f0b678b3-19b9-4e51-8f2e-cf753aff5519",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1084,7 +1089,7 @@
 		},
 		{
 			"name": "Project News",
-			"_postman_id": "3d7d9373-3e9c-4a0f-b28d-d44852f89462",
+			"id": "3d7d9373-3e9c-4a0f-b28d-d44852f89462",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1227,7 +1232,7 @@
 		},
 		{
 			"name": "Project Multimedia",
-			"_postman_id": "cb34cc15-a3ec-4be4-baf3-f83e24132c4a",
+			"id": "cb34cc15-a3ec-4be4-baf3-f83e24132c4a",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1266,7 +1271,7 @@
 		},
 		{
 			"name": "Project Photo Archives",
-			"_postman_id": "faf8dc31-ceb9-4485-abc5-a58cdb1b2ed1",
+			"id": "faf8dc31-ceb9-4485-abc5-a58cdb1b2ed1",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
 			},
@@ -1354,16 +1359,14 @@
 	],
 	"variable": [
 		{
-			"id": "3f6d1ea3-2b70-47f2-a0a6-4bbca2379d8f",
+			"id": "56f2064b-b980-4b9c-878d-3d0ac6e12028",
 			"key": "SEARCH_API",
-			"value": "http://search.worldbank.org/api/v2",
-			"type": "string"
+			"value": "http://search.worldbank.org/api/v2"
 		},
 		{
-			"id": "8083a1dc-51dd-426d-930f-c1e72e883b4c",
+			"id": "3be9d4d3-7bb3-4d97-a643-760b9eedf7ed",
 			"key": "PROJECT_ID",
-			"value": "P175221",
-			"type": "string"
+			"value": "P175221"
 		}
 	]
 }

@@ -11,8 +11,12 @@ headers = {
 SEARCH_API_BASE_V1 = "http://search.worldbank.org/api"
 SEARCH_API_BASE_V2 = "http://search.worldbank.org/api/v2"
 PROJECTS_URL_BASE = SEARCH_API_BASE_V2 + "/projects"
+PROJECT_ARCHIVE_URL_BASE = SEARCH_API_BASE_V2 + "/projectsarchives"
 CONTRACTS_URL_BASE = SEARCH_API_BASE_V1 + "/contractdata"
-
+NOTICES_URL_BASE = SEARCH_API_BASE_V2 + "/procnotices"
+NEWS_URL_BASE = SEARCH_API_BASE_V2 + "/news"
+MULTIMEDIA_URL_BASE = SEARCH_API_BASE_V2 + "/multimedia"
+PHOTO_ARCHIVE_BASE = SEARCH_API_BASE_V2 + "/photoarchives"
 DOCUMENTS_URL_BASE = SEARCH_API_BASE_V2 + "/wds"
 FINANCE_URL = 'https://finances.worldbank.org/resource/sfv5-tf7p.json'
 
@@ -37,7 +41,7 @@ def paginate(url, entity, params, is_dict=True):
             print('Exception trying to fetch ' + response.url)
             continue
         finally:
-            i = i + 1000
+            i = i + int(params['rows'])
     return data
 
 
@@ -103,14 +107,67 @@ def get_contracts():
         json.dump(contracts_data, f)
 
 
+def get_archives():
+    """Get all archive records"""
+    params = {'format': 'json',
+              'countryname': 'Republic of India', 'rows': '1000'}
+    archive_data = paginate(url=PROJECT_ARCHIVE_URL_BASE,
+                            entity='projectsarchives', params=params, is_dict=False)
+    archive_data = pd.DataFrame.from_dict(archive_data, orient='columns')
+    archive_data.sort_values(by='project_id', ascending=False, inplace=True)
+    archive_data.to_csv('data/WB_India_Project_Archives.csv')
+
+
+def get_notices():
+    """Get Procurement Notices"""
+    # https://search.worldbank.org/api/v2/procnotices?project_ctry_name=India&format=json&row=1000&fl=id,notice_type,noticedate,notice_lang_name,notice_status,project_name,bid_reference_no,bid_description,procurement_group,procurement_method_code,submission_date,notice_text&srt=id%20desc
+    params = {'format': 'json', 'rows': '10', 'project_ctry_name': 'India',
+              'fl': """id,notice_type,noticedate,notice_lang_name,notice_status,
+               project_name,bid_reference_no,bid_description,procurement_group,
+               procurement_method_code,submission_date,notice_text""",
+              'srt': 'id desc'}
+    notices_data = paginate(url=NOTICES_URL_BASE,
+                            entity='procnotices', params=params, is_dict=False)
+    notices_data = pd.DataFrame.from_dict(archive_data, orient='columns')
+    notices_data.to_csv('data/WB_India_Procurement_Notices.csv')
+
+
+def get_news():
+    """Get News"""
+    # https://search.worldbank.org/api/v2/news?format=json&rows=1000&countcode=IN&srt=start_date%20desc&fl=id,url,topic,lnchdt,conttype,displayconttype,originating_unit,funding_source
+    params = {'format': 'json', 'rows': '1000', 'countcode': 'IN',
+              'fl': """id,url,topic,lnchdt,conttype,displayconttype,
+              originating_unit,funding_source"""}
+    news_data = paginate(url=NEWS_URL_BASE,
+                         entity='documents', params=params)
+    news_data = pd.DataFrame.from_dict(news_data, orient='columns')
+    news_data.to_csv('data/WB_India_News.csv')
+
+
+def get_multimedia():
+    """Get Multimedia"""
+    # https://search.worldbank.org/api/v2/multimedia?format=json&rows=1000&country=India
+    params = {'format': 'json', 'rows': '1000', 'country': 'India'}
+    multimedia_data = paginate(
+        url=MULTIMEDIA_URL_BASE, entity='multimedia', params=params)
+    multimedia_data = pd.DataFrame.from_dict(multimedia_data, orient='columns')
+    multimedia_data.to_csv('data/WB_India_Multimedia.csv')
 
 
 def main():
     """Main method"""
     get_projects()
-    get_documents()
-    get_finances()
+
+    get_notices()
     get_contracts()
+
+    get_documents()
+    get_archives()
+
+    get_news()
+    get_multimedia()
+
+    get_finances()
 
 
 if __name__ == "__main__":

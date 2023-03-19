@@ -43,28 +43,13 @@ def paginate(url, entity, params, is_dict=True):
 
 def get_documents():
     """Get Document Information"""
-    params = {'format': 'json', 'fl': 'docdt,docty,projectid', 'strdate': '1948-01-01',
+    params = {'format': 'json', 'rows': '1000',
+              'fl': 'docdt,docty,projectid', 'strdate': '1948-01-01',
               'enddate': datetime.today().strftime('%Y-%m-%d'),
-              'countrycode_exact': 'IN', 'rows': '1000'}
+              'countrycode_exact': 'IN'}
 
     response = requests.request(
         "GET", DOCUMENTS_URL_BASE, headers=headers, params=params, timeout=1800)
-    # data = json.loads(response.text)
-    # doc_count = data['total']
-    # document_list = list(data['documents'].values())
-    # i = 1000
-    # while i < doc_count:
-    #     try:
-    #         params['os'] = str(i)
-    #         response = requests.request(
-    #             "GET", DOCUMENTS_URL_BASE, headers=headers, params=params, timeout=1800)
-    #         data = json.loads(response.text)
-    #         document_list = document_list + list(data['documents'].values())
-    #         doc_count = data['total']
-    #         i = i + 1000
-    #     except:
-    #         print('Exception trying to fetch ' + response.url)
-    #         continue
     document_list = paginate(url=DOCUMENTS_URL_BASE,
                              entity='documents', params=params)
     documents_dataframe = pd.DataFrame.from_dict(
@@ -75,7 +60,8 @@ def get_documents():
         '\n', ' ')
     documents_dataframe['docdt'] = pd.to_datetime(
         documents_dataframe['docdt'].str.strip(), dayfirst=True, format='%Y-%m-%d').dt.date
-    documents_dataframe.sort_values(by='docdt', ascending=False)
+    documents_dataframe.sort_values(
+        by=['projectid', 'docdt'], ascending=False, inplace=True)
     documents_dataframe.to_csv('data/WB_India_Documents.csv')
 
 
@@ -90,7 +76,7 @@ def get_projects():
     projects = paginate(url=PROJECTS_URL_BASE,
                         entity='projects', params=params)
     project_dataframe = pd.DataFrame.from_dict(projects, orient='columns')
-    project_dataframe.sort_values(by='id', ascending=False)
+    project_dataframe.sort_values(by='id', ascending=False, inplace=True)
     project_dataframe.to_csv('data/WB_India_Projects.csv')
 
 
@@ -99,7 +85,8 @@ def get_finances():
     data = json.loads(requests.request("GET", FINANCE_URL).text)
     finance_dataframe = pd.DataFrame.from_dict(data, orient='columns')
     finance_dataframe = finance_dataframe.loc[finance_dataframe['country_code'] == 'IN']
-    finance_dataframe.sort_values(by='project_id', ascending=False)
+    finance_dataframe.sort_values(
+        by='project_id', ascending=False, inplace=True)
     finance_dataframe.to_csv('data/WB_India_Project_Finance.csv')
 
 
@@ -116,11 +103,13 @@ def get_contracts():
         json.dump(contracts_data, f)
 
 
+
+
 def main():
     """Main method"""
     get_projects()
     get_documents()
-    # get_finances()
+    get_finances()
     get_contracts()
 
 

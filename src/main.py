@@ -128,7 +128,7 @@ def get_notices():
               'srt': 'id desc'}
     notices_data = paginate(url=NOTICES_URL_BASE,
                             entity='procnotices', params=params, is_dict=False)
-    notices_data = pd.DataFrame.from_dict(archive_data, orient='columns')
+    notices_data = pd.DataFrame.from_dict(notices_data, orient='columns')
     notices_data.to_csv('data/WB_India_Procurement_Notices.csv')
 
 

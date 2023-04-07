@@ -910,7 +910,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "{{SEARCH_API}}/wds?format=json&includepublicdocs=1&fl=docna,lang,docty,repnb,docdt,doc_authr,available_in&os=0&rows=30&proid={{PROJECT_ID}}&apilang=en",
+							"raw": "{{SEARCH_API}}/wds?format=json&includepublicdocs=1&os=0&rows=30&proid={{PROJECT_ID}}&apilang=en",
 							"host": [
 								"{{SEARCH_API}}"
 							],
@@ -928,7 +928,8 @@
 								},
 								{
 									"key": "fl",
-									"value": "docna,lang,docty,repnb,docdt,doc_authr,available_in"
+									"value": "docna,lang,docty,repnb,docdt,doc_authr,available_in",
+									"disabled": true
 								},
 								{
 									"key": "os",
@@ -1365,18 +1366,18 @@
 	],
 	"variable": [
 		{
-			"id": "0d70cd50-acd8-4c52-a786-389cf1f9d670",
+			"id": "1657cffb-fc83-415d-8ace-9d5d3b3ca9a1",
 			"key": "SEARCH_API",
 			"value": "http://search.worldbank.org/api/v2"
 		},
 		{
-			"id": "5df056e3-dc56-4ffd-b409-cd23ec7eabb5",
+			"id": "a79d853c-116e-4603-b721-69d157795fc2",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"disabled": true
 		},
 		{
-			"id": "dea1ae22-9ec4-4dbe-b18d-c4881e31836a",
+			"id": "968593c7-feb7-4923-a27e-e7c161422a87",
 			"key": "PROJECT_ID",
 			"value": "P161135",
 			"type": "string"

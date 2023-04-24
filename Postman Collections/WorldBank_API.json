@@ -221,7 +221,7 @@
 							}
 						],
 						"url": {
-							"raw": "{{SEARCH_API}}/projects?format=json&kw=N&rows=1000&fl=id,regionname,countryname,countryname_mdk,prodline,lendinginstr,lendinginstrcode,lendinginstrtype_mdk,supplementprojectflg,productlinetype,projectstatusdisplay,status,pidrecdbwind,project_name,boardapprovaldate,closingdate,lendprojectcost,ibrdcommamt,idacommamt,totalamt&sort=proid&order=desc&proid=P161135",
+							"raw": "{{SEARCH_API}}/projects?format=json&kw=N&rows=1000&fl=id,regionname,countryname,countryname_mdk,prodline,lendinginstr,lendinginstrcode,lendinginstrtype_mdk,supplementprojectflg,productlinetype,projectstatusdisplay,status,pidrecdbwind,project_name,boardapprovaldate,closingdate,lendprojectcost,ibrdcommamt,idacommamt,totalamt&sort=proid&order=desc&proid={{PROJECT_ID}}",
 							"host": [
 								"{{SEARCH_API}}"
 							],
@@ -265,7 +265,7 @@
 								},
 								{
 									"key": "proid",
-									"value": "P161135"
+									"value": "{{PROJECT_ID}}"
 								}
 							]
 						}
@@ -1366,18 +1366,18 @@
 	],
 	"variable": [
 		{
-			"id": "2c1f752f-5739-4f6d-88a2-a368a5a7a2de",
+			"id": "7f0862ba-1b56-40eb-80be-ccc50f851973",
 			"key": "SEARCH_API",
 			"value": "http://search.worldbank.org/api/v2"
 		},
 		{
-			"id": "cdac7beb-ec59-45c0-a560-872087690f75",
+			"id": "1e72135b-a624-4907-a6cd-22028d670e75",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"disabled": true
 		},
 		{
-			"id": "649f07a1-8563-42e7-b62d-2f9d853c559f",
+			"id": "6f4737f1-d2f1-4dff-86b3-3e5997974faa",
 			"key": "PROJECT_ID",
 			"value": "P180699",
 			"type": "string"

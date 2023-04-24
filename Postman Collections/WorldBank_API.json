@@ -206,7 +206,7 @@
 					]
 				},
 				{
-					"name": "Get Projects Copy",
+					"name": "Get Single Projects",
 					"id": "350308a3-bf64-49f0-a49f-63ff9dc1dcda",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1366,18 +1366,18 @@
 	],
 	"variable": [
 		{
-			"id": "7f0862ba-1b56-40eb-80be-ccc50f851973",
+			"id": "bf47b813-0b86-4a43-bda6-f42c7bf152a2",
 			"key": "SEARCH_API",
 			"value": "http://search.worldbank.org/api/v2"
 		},
 		{
-			"id": "1e72135b-a624-4907-a6cd-22028d670e75",
+			"id": "32c32b68-2a73-427a-adab-4c4e8ab72d3f",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"disabled": true
 		},
 		{
-			"id": "6f4737f1-d2f1-4dff-86b3-3e5997974faa",
+			"id": "18c446f2-4a64-4be6-b6f9-11da1ed08f68",
 			"key": "PROJECT_ID",
 			"value": "P180699",
 			"type": "string"

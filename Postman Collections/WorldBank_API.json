@@ -1370,7 +1370,6 @@
 							"    }",
 							"}",
 							"",
-							"",
 							"// Set visualizer",
 							"pm.visualizer.set(template, {",
 							"    // Pass the response body parsed as JSON as `data`",
@@ -1566,18 +1565,18 @@
 	],
 	"variable": [
 		{
-			"id": "2d6141c5-c97b-4c7a-b287-c0fd308898cc",
+			"id": "5022707f-cec1-4b87-9e52-404b74b6b8b5",
 			"key": "SEARCH_API",
 			"value": "http://search.worldbank.org/api/v2"
 		},
 		{
-			"id": "37810642-27f9-4e55-bb7e-a0164e56ef97",
+			"id": "2394e396-5dd0-49b2-bb6b-1273bbd5bad8",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"disabled": true
 		},
 		{
-			"id": "92631885-7dca-4814-8627-1a7bf3dac636",
+			"id": "de232399-c298-4737-9b04-89fa6357daa2",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"type": "string"

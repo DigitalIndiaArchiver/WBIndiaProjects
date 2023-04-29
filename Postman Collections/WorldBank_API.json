@@ -1349,10 +1349,33 @@
 					"script": {
 						"id": "3cfa75d9-bb09-4306-a934-8d55c836fcdf",
 						"exec": [
+							"var template = `",
+							"    <table bgcolor=\"#FFFFFF\">",
+							"        <tr>",
+							"            <th>Name</th>",
+							"            <th>Email</th>",
+							"        </tr>",
+							"",
+							"        {{#each response}}",
+							"            <tr>",
+							"                <td>{{name}}</td>",
+							"                <td>{{email}}</td>",
+							"            </tr>",
+							"        {{/each}}",
+							"    </table>",
+							"`;",
+							"var arr = [];",
+							"for (var key in pm.response.json()['documents']) {",
+							"    if ((pm.response.json()['documents']).hasOwnProperty(key)) {",
+							"        arr.push( pm.response.json()['documents'][key]);",
+							"    }",
+							"}",
+							"",
+							"",
 							"// Set visualizer",
 							"pm.visualizer.set(template, {",
 							"    // Pass the response body parsed as JSON as `data`",
-							"    response: pm.response.json()",
+							"    response: arr",
 							"});",
 							""
 						],
@@ -1544,18 +1567,18 @@
 	],
 	"variable": [
 		{
-			"id": "40f101dc-5e60-4190-89df-32994d8f38ff",
+			"id": "48d2d19b-9d4b-4e83-a6d4-7158d08a0ef8",
 			"key": "SEARCH_API",
 			"value": "http://search.worldbank.org/api/v2"
 		},
 		{
-			"id": "57445291-d9d6-4839-b476-c9c6b82d9924",
+			"id": "9b704daa-5fe9-41c7-b5cb-8471e9a6513c",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"disabled": true
 		},
 		{
-			"id": "39d9db83-5ec6-4dc3-bdc4-1c14d532de8f",
+			"id": "feaf77e6-026c-4bd1-a548-37938de47dcc",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"type": "string"

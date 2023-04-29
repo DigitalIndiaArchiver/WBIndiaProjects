@@ -1354,8 +1354,7 @@
 							"        <tr>",
 							"            <th>ID</th>",
 							"            <th>Date</th>",
-							"            <th>Type</th>",
-							"            <th>Document</th>",
+							"            <th>Type</th>            ",
 							"        </tr>",
 							"",
 							"        {{#each raesponse}}",
@@ -1363,7 +1362,6 @@
 							"                <td>{{id}}</td>",
 							"                <td>{{docdt}}</td>",
 							"                <td>{{docty}}</td>",
-							"                <a href=\"{{pdfurl}}\"><td>{{display_title}}</td></a>                ",
 							"            </tr>",
 							"        {{/each}}",
 							"    </table>",
@@ -1571,18 +1569,18 @@
 	],
 	"variable": [
 		{
-			"id": "817ccb0d-6206-4f5a-99ed-ac92bb3ba460",
+			"id": "21cffc2c-0d9d-4c2d-85d0-278a4c7608ca",
 			"key": "SEARCH_API",
 			"value": "http://search.worldbank.org/api/v2"
 		},
 		{
-			"id": "c2d6e4bd-d2da-4758-a652-70a4e051ac4f",
+			"id": "e727fa9e-ddb7-4e4f-97c1-c8663a3c2a96",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"disabled": true
 		},
 		{
-			"id": "75d31137-81c2-457f-bd49-d0cc1f399ac5",
+			"id": "d52b52df-d2f0-4e88-a518-03ca9d78d139",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"type": "string"

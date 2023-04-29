@@ -1355,6 +1355,7 @@
 							"            <th>ID</th>",
 							"            <th>Title</th>            ",
 							"        </tr>",
+							"",
 							"        {{#each raesponse}}",
 							"            <tr>",
 							"                <td>{{id}}</td>",
@@ -1566,18 +1567,18 @@
 	],
 	"variable": [
 		{
-			"id": "2156fc99-d39d-44df-b2b2-4ba9e7ec9154",
+			"id": "e404e107-3765-4108-9921-c781bc9026ad",
 			"key": "SEARCH_API",
 			"value": "http://search.worldbank.org/api/v2"
 		},
 		{
-			"id": "3e8eee8e-898c-4119-b9d6-509c8bba69fe",
+			"id": "ba2da196-deda-4eb7-83b5-87efc8ebe781",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"disabled": true
 		},
 		{
-			"id": "885e72a7-f185-4f66-865c-3559902acfee",
+			"id": "f89f19c0-8771-4580-820a-dc98bc0a091b",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"type": "string"

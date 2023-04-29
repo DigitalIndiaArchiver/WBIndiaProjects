@@ -1353,14 +1353,12 @@
 							"    <table bgcolor=\"#FFFFFF\">",
 							"        <tr>",
 							"            <th>ID</th>",
-							"            <th>Date</th>",
 							"            <th>Type</th>            ",
 							"        </tr>",
 							"",
 							"        {{#each raesponse}}",
 							"            <tr>",
 							"                <td>{{id}}</td>",
-							"                <td>{{docdt}}</td>",
 							"                <td>{{docty}}</td>",
 							"            </tr>",
 							"        {{/each}}",
@@ -1393,7 +1391,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "https://search.worldbank.org/api/v2/wds?format=json&rows=400&fl=docdt,docty&strdate=2023-03-01&enddate={{today}}&countrycode_exact=IN&sort=docdt&order=desc",
+					"raw": "https://search.worldbank.org/api/v2/wds?format=json&rows=4&fl=docdt,docty&strdate=2023-03-01&enddate={{today}}&countrycode_exact=IN&sort=docdt&order=desc",
 					"protocol": "https",
 					"host": [
 						"search",
@@ -1412,7 +1410,7 @@
 						},
 						{
 							"key": "rows",
-							"value": "400"
+							"value": "4"
 						},
 						{
 							"key": "fl",
@@ -1569,18 +1567,18 @@
 	],
 	"variable": [
 		{
-			"id": "2a72c102-c6ac-41e7-9a0d-b04eb0942f96",
+			"id": "3d24985a-f947-4518-a43c-c6377329301f",
 			"key": "SEARCH_API",
 			"value": "http://search.worldbank.org/api/v2"
 		},
 		{
-			"id": "3af4f71b-7ef7-4d15-9dd9-69356621c09b",
+			"id": "b4d292a8-c012-4d5b-94cf-6cbb335238d8",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"disabled": true
 		},
 		{
-			"id": "ae52ead3-ceab-4b21-884a-bd3e2eb3d624",
+			"id": "c3621eaf-c9ee-468e-83fb-9cbd6fe3769d",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"type": "string"

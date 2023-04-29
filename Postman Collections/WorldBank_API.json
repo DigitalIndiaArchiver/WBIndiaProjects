@@ -1343,6 +1343,23 @@
 		},
 		{
 			"name": "Docs India",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "3cfa75d9-bb09-4306-a934-8d55c836fcdf",
+						"exec": [
+							"// Set visualizer",
+							"pm.visualizer.set(template, {",
+							"    // Pass the response body parsed as JSON as `data`",
+							"    response: pm.response.json()",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
 			"id": "d6eb1302-212c-4ffc-9130-5c8a0f0fd88b",
 			"protocolProfileBehavior": {
 				"disableBodyPruning": true
@@ -1527,18 +1544,18 @@
 	],
 	"variable": [
 		{
-			"id": "44fafb90-1d75-4e1d-ad58-b8e1db37ef4b",
+			"id": "40f101dc-5e60-4190-89df-32994d8f38ff",
 			"key": "SEARCH_API",
 			"value": "http://search.worldbank.org/api/v2"
 		},
 		{
-			"id": "c06bb8dd-8f54-4d17-9ad2-60a51ba9b3da",
+			"id": "57445291-d9d6-4839-b476-c9c6b82d9924",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"disabled": true
 		},
 		{
-			"id": "1443d107-a325-48bf-8d6f-2ed46a584b16",
+			"id": "39d9db83-5ec6-4dc3-bdc4-1c14d532de8f",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"type": "string"

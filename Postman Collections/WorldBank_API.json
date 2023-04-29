@@ -1340,6 +1340,18 @@
 				}
 			],
 			"id": "4822a787-764f-46d5-bc72-7437da911785"
+		},
+		{
+			"name": "New Request",
+			"id": "d6eb1302-212c-4ffc-9130-5c8a0f0fd88b",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	],
 	"event": [
@@ -1366,18 +1378,18 @@
 	],
 	"variable": [
 		{
-			"id": "4a6057e6-29e8-43d7-a3c2-c19d7c897bcd",
+			"id": "d83c477d-b01e-4edb-8200-8c253649770e",
 			"key": "SEARCH_API",
 			"value": "http://search.worldbank.org/api/v2"
 		},
 		{
-			"id": "96923d18-575a-4671-9607-3c0ade577d8a",
+			"id": "3847c62d-1e8d-4c35-8e1f-1ea9f3b379f4",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"disabled": true
 		},
 		{
-			"id": "2cef20be-f9fe-4652-b86d-1449e5afd70c",
+			"id": "de678f1f-5de4-44dd-a691-194629bfeba3",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"type": "string"

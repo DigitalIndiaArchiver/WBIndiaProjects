@@ -1364,6 +1364,7 @@
 							"    </table>",
 							"`;",
 							"var arr = [];",
+							"console.log(arr)",
 							"for (var key in pm.response.json()['documents']) {",
 							"    if ((pm.response.json()['documents']).hasOwnProperty(key)) {",
 							"        arr.push( pm.response.json()['documents'][key]);",
@@ -1565,18 +1566,18 @@
 	],
 	"variable": [
 		{
-			"id": "a157f31d-bb56-4117-9aa1-c9e1250d42c6",
+			"id": "76cdcbcd-703f-46b1-b1d2-6490cf8d5979",
 			"key": "SEARCH_API",
 			"value": "http://search.worldbank.org/api/v2"
 		},
 		{
-			"id": "643f4074-461e-46c7-a9fb-de5b4d7fe221",
+			"id": "d9e0d710-979e-4953-8bfa-41cf159f1f28",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"disabled": true
 		},
 		{
-			"id": "55d02411-a10a-4084-a001-ad594457cf0f",
+			"id": "58fc8210-5860-4431-be04-8cabb1938a3a",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"type": "string"

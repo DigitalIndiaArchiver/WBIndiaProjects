@@ -1541,7 +1541,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "76ed53af-c89c-4657-83bb-db3b29133e2b",
+				"id": "916baf28-86ad-4fe4-8ebf-65ab51662b4f",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1551,7 +1551,7 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "48b1b74b-d5c2-4b7b-9a94-e35f06809755",
+				"id": "7ba2d274-a78c-46bb-ad1c-9195ac583b9e",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -1561,26 +1561,21 @@
 	],
 	"variable": [
 		{
-			"id": "815d67ef-7979-4529-b4f5-13e434520045",
+			"id": "c0fb2f2a-c526-4e41-95e2-686b2afbaf12",
 			"key": "SEARCH_API",
 			"value": "http://search.worldbank.org/api/v2"
 		},
 		{
-			"id": "c9f25549-85e0-438f-aaaa-54ae2ad6a0c7",
+			"id": "136e69df-4f0e-432f-b14d-87deb4ea96c3",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"disabled": true
 		},
 		{
-			"id": "202061c1-ca4d-4867-83e6-e4f5cebbefa5",
+			"id": "d3cf7c30-6c40-460a-9ea4-de9ba7775f66",
 			"key": "PROJECT_ID",
 			"value": "P175221",
 			"type": "string"
-		},
-		{
-			"id": "f565142f-a896-4873-91cb-0480b592c59f",
-			"key": "SEARCH_API_ROOT",
-			"value": "https://search.worldbank.org/api"
 		}
 	]
 }

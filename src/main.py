@@ -63,7 +63,7 @@ def get_documents():
     documents_dataframe['display_title'] = documents_dataframe['display_title'].str.replace(
         '\n', ' ')
     documents_dataframe['docdt'] = pd.to_datetime(
-        documents_dataframe['docdt'].str.strip(), dayfirst=True, format='%Y-%m-%d').dt.date
+        documents_dataframe['docdt']).dt.date
     documents_dataframe.sort_values(
         by=['projectid', 'docdt'], ascending=False, inplace=True)
     documents_dataframe.to_csv('data/WB_India_Documents.csv')
@@ -158,8 +158,8 @@ def main():
     """Main method"""
     get_projects()
 
-    get_notices()
-    get_contracts()
+    # get_notices()
+    # get_contracts()
 
     get_documents()
     get_archives()
